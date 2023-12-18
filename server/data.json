@@ -1,0 +1,74 @@
+[
+  {
+    "_id": { "$oid": "6458f2660370b02a293447b0" },
+    "title": "Dead Poets Society",
+    "thumbnail": "dead-poets-society.jpeg",
+    "slug": "dead-poets-society",
+    "description": "A group of students in a highly conservative boarding school learn to rebel against the status quo and find deeper meaning in life with the help of their new poetry teacher.",
+    "stars": "5",
+    "category": ["comedy", "thriller"]
+  },
+  {
+    "_id": { "$oid": "6458f2c50370b02a2934d5fc" },
+    "title": "ELF",
+    "thumbnail": "elf-poster.jpg",
+    "slug": "elf",
+    "description": "Buddy, a human, is raised amongst elves at the North Pole. When he discovers that he is not an elf, he travels to New York to search for his biological father.",
+    "stars": "4",
+    "category": ["comedy", "fantasy"]
+  },
+  {
+    "_id": { "$oid": "648ada707a15f23fa4ba9aa5" },
+    "title": "Good Will Hunting",
+    "thumbnail": "good-will-hunting.jpg",
+    "slug": "good-will-hunting",
+    "description": "Will Hunting, a genius in mathematics, solves all the difficult mathematical problems. When he faces an emotional crisis, he takes help from psychiatrist Dr Sean Maguireto, who helps him recover.",
+    "stars": "5",
+    "category": ["thriller", "romance"]
+  },
+  {
+    "_id": { "$oid": "648ae00a7a15f23fa4ba9aaa" },
+    "title": "Harry Potter and the Philosopher's Stone",
+    "thumbnail": "harry-potter.jpg",
+    "slug": "harry-potter",
+    "description": "Harry Potter, an eleven-year-old orphan, discovers that he is a wizard and is invited to study at Hogwarts. Even as he escapes a dreary life and enters a world of magic, he finds trouble awaiting him.",
+    "stars": "4",
+    "category": ["fantasy", "adventure"]
+  },
+  {
+    "_id": { "$oid": "649ae53ea7fa4c85582e7724" },
+    "title": "Interstellar",
+    "thumbnail": "Interstellar-Movie.jpg",
+    "slug": "interstellar",
+    "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
+    "stars": "5",
+    "category": ["Sci-Fi", "Adventure"]
+  },
+  {
+    "_id": { "$oid": "649ae85da7fa4c85582e7727" },
+    "title": "The Big Short",
+    "thumbnail": "the-big-short.jpg",
+    "slug": "the-big-short",
+    "description": "In the mid-2000s, a few finance experts observe the instability in the US housing market and predict its collapse. Through their research, they discover the flaws and corruption in the system.",
+    "stars": "4",
+    "category": ["comedy", "documentary"]
+  },
+  {
+    "_id": { "$oid": "649ae855a7fa4c85582e7726" },
+    "title": "The Hangover",
+    "thumbnail": "the-hangover.jpg",
+    "slug": "the-hangover",
+    "description": "A few days before his wedding, Doug Billings and his best men go to Las Vegas for a bachelor party. However, the next day, the friends realise that they have no recollection of the previous night.",
+    "stars": "4",
+    "category": ["comedy", "adventure"]
+  },
+  {
+    "_id": { "$oid": "649aeab9a7fa4c85582e772a" },
+    "title": "The Social Network",
+    "thumbnail": "the-social-network.jpg",
+    "slug": "the-social-network",
+    "description": "The 6:20 Man is a heart-racing thriller set in the world of high finance in New York, from the number one best-selling author David Baldacci...",
+    "stars": "5",
+    "category": ["documentary", "drama"]
+  }
+]
