@@ -28,6 +28,16 @@ app.get("/api/movies", async (req, res) => {
   }
 });
 
+// Create a route
+app.get("/api/movies", async (req, res) => {
+  try {
+    const data = await Movie.find({}); //collects data
+    res.json(data); //converts data to a json response for viewing
+  } catch (error) {
+    res.status(500).json({ error: "An error occured while fetching Movies" });
+  }
+});
+
 app.get("/", (req, res) => {
   res.json("Hello World"); //response sent to localhost:8000
 });
