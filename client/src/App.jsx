@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Im
 import Home from "./routes/Home/home";
 import About from "./routes/About/about";
 import Movie from "./routes/Movie/movie";
+import SingleMovie from "./routes/Movie/singleMovie";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -17,8 +18,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/movie" element={<Movie />} />
+          {/* Path to Single movie */}
+          <Route path="/movies/:slug" element={<SingleMovie />} />
         </Routes>
-        < Footer />
+        <Footer />
       </Router>
     </>
   );

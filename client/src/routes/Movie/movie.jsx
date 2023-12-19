@@ -83,7 +83,7 @@ const Movie = () => {
           {movieData.map((item) => (
             // Fetch _id for Movie
             <li key={item._id}>
-              <Link to={`movies/${item.slug}`}>
+              <Link to={`/movies/${item.slug}`}>
                 <img
                   // Image Thumbnail Taken From Uploads Folder
                   src={`http://localhost:8000/uploads/${item.thumbnail}`}

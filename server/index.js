@@ -46,18 +46,20 @@ app.get("/api/movies", async (req, res) => {
   }
 });
 
-// Create a route
-// app.get("/api/movies", async (req, res) => {
-//   try {
-//     // // Collects Data
-//     // const movieData = await Movie.find({});
+//Create a Route for detailed information
+app.get("/api/movies/:slug", async (req, res) => {
+  try {
+    // Store slug in slugParam
+    const slugParam = req.params.slug;
 
-//     // Converts Movie Data into JSON response
-//     res.json(movieData);
-//   } catch (error) {
-//     res.status(500).json({ error: "An error occured while fetching Movies" });
-//   }
-// });
+    // Data from movies
+    const movieData = await Movie.find({ slug: slugParam });
+    res.json(movieData);
+  } catch (error) {
+    // Error if Movies cannot be Fetched
+    res.status(500).json({ error: "An error occured while fetching Movies " });
+  }
+});
 
 app.get("/", (req, res) => {
   // Response to localhost:8000
