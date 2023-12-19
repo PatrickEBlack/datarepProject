@@ -9,12 +9,20 @@ const Movie = () => {
   // Will check if App is in a Loading State
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // Select Category to show from dropdown Menu
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
+        let URL = baseURL;
+        if (selectedCategory) {
+          // Search for selected category in Data File
+          URL += `?category=${selectedCategory}`;
+        }
+
         // Stores baseURL in response
-        const response = await fetch(baseURL);
+        const response = await fetch(URL);
         if (!response.ok) {
           // If response is not okay, throw error
           throw new Error("Failed to Fetch data!");
@@ -35,7 +43,7 @@ const Movie = () => {
 
     // Invoking fetchMovieData
     fetchMovieData();
-  }, []);
+  }, [selectedCategory]);
 
   return (
     <div>
@@ -46,18 +54,21 @@ const Movie = () => {
       </p>
       <h2>Data Display</h2>
 
+      {/* className filters used in index.css */}
       <div className="filters">
         <label>Categories</label>
-        <select>
-          <option value="">ALL</option>
-          <option value="comedy">COMEDY</option>
-          <option value="thriller">THRILLER</option>
-          <option value="fantasy">FANTASY</option>
-          <option value="documentary">DOCUMENTARY</option>
-          <option value="romance">ROMANCE</option>
-          <option value="adventure">ADVENTURE</option>
-          <option value="sci-fi">SCI-FI</option>
-          <option value="drama">DRAMA</option>
+        {/* Grab the Value of the selected Category */}
+        <select onChange={(e) => setSelectedCategory(e.target.value)}>
+          {/* Lables For Movie Categories */}
+          <option value="">All</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="documentary">Documentary</option>
+          <option value="drama">Drama</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="romance">Romance</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="thriller">Thriller</option>
         </select>
       </div>
 

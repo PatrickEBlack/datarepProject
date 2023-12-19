@@ -28,8 +28,17 @@ app.use("/uploads", express.static("uploads"));
 //Create a Route
 app.get("/api/movies", async (req, res) => {
   try {
+    const category = req.query.category;
+
+    const filter = {};
+
+    // If there is data in category, filter.category will hold the Category Type
+    if (category) {
+      filter.category = category;
+    }
+
     // Data from movies
-    const movieData = await Movie.find();
+    const movieData = await Movie.find(filter);
     res.json(movieData);
   } catch (error) {
     // Error if Movies cannot be Fetched
@@ -38,17 +47,17 @@ app.get("/api/movies", async (req, res) => {
 });
 
 // Create a route
-app.get("/api/movies", async (req, res) => {
-  try {
-    // Collects Data
-    const movieData = await Movie.find({});
+// app.get("/api/movies", async (req, res) => {
+//   try {
+//     // // Collects Data
+//     // const movieData = await Movie.find({});
 
-    // Converts Movie Data into JSON response
-    res.json(movieData);
-  } catch (error) {
-    res.status(500).json({ error: "An error occured while fetching Movies" });
-  }
-});
+//     // Converts Movie Data into JSON response
+//     res.json(movieData);
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occured while fetching Movies" });
+//   }
+// });
 
 app.get("/", (req, res) => {
   // Response to localhost:8000
