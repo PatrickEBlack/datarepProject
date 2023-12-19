@@ -45,7 +45,21 @@ const Movie = () => {
         Node JS Section. "Add Movie" Fucntion Here later.
       </p>
       <h2>Data Display</h2>
-      {/* <pre>{JSON.stringify(movieData, null, 2)}</pre> */}
+
+      <div className="filters">
+        <label>Categories</label>
+        <select>
+          <option value="">ALL</option>
+          <option value="comedy">COMEDY</option>
+          <option value="thriller">THRILLER</option>
+          <option value="fantasy">FANTASY</option>
+          <option value="documentary">DOCUMENTARY</option>
+          <option value="romance">ROMANCE</option>
+          <option value="adventure">ADVENTURE</option>
+          <option value="sci-fi">SCI-FI</option>
+          <option value="drama">DRAMA</option>
+        </select>
+      </div>
 
       {/* What we do if we're in a Loading State */}
       {loading ? (
