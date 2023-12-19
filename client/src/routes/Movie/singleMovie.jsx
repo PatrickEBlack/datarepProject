@@ -5,10 +5,10 @@ function singleMovie() {
   // Will be populated with all the data recieved from baseURL
   const [movieData, setMovieData] = useState([]);
 
-  const urlSlug = useParams();
+  const { slug } = useParams();
 
   // BaseURL for movie slug (i.e. good-will-hunting)
-  const baseURL = `http://localhost:8000/api/movies/${urlSlug.slug}`;
+  const baseURL = `http://localhost:8000/api/movies/${slug}`;
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -32,11 +32,39 @@ function singleMovie() {
 
     // Invoking fetchMovieData
     fetchMovieData();
-  }, []);
+  }, [slug]);
 
   return (
     <div>
       <Link to={"/movie"}>⬅ Movies</Link>
+      {movieData.map((element) => (
+        <div className="moviedetails">
+          <div className="col-1">
+            <img
+              src={`http://localhost:8000/uploads/${element.thumbnail}`}
+              alt={element.title}
+            />
+            <br />
+            {/*  */}
+          </div>
+          <div className="col-2">
+            {/* Display Movie Title */}
+            <h1>{element.title}</h1>
+            <p>{element.description}</p>
+            {/*  */}
+            {/* Categories Related to Movies */}
+            <p>
+              <b>Category</b>
+            </p>
+            <ul>
+              {element.category.map((item, index) => (
+                // Display Categories
+                <li key={index}>{item.toString().toUpperCase()}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
