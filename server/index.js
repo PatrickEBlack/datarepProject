@@ -61,6 +61,28 @@ app.get("/api/movies/:slug", async (req, res) => {
   }
 });
 
+app.post("/api/movies", async (req, res) => {
+  try {
+    console.log(req.body);
+
+    const newMovie = new Movie({
+      title: req.body.title,
+      slug: req.body.slug,
+      stars: req.body.stars,
+      description: req.body.description,
+      category: req.body.category,
+      //thumbnail: req.file.filename,
+    });
+
+    await Movie.create(newMovie);
+
+    res.json("Data submitted");
+  } catch (error) {
+    // Error if Movies cannot be Fetched
+    res.status(500).json({ error: "An error occured while fetching Movies " });
+  }
+});
+
 app.get("/", (req, res) => {
   // Response to localhost:8000
   res.json("Hello World");

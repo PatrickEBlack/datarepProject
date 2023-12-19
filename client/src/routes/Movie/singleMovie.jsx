@@ -34,6 +34,17 @@ function singleMovie() {
     fetchMovieData();
   }, [slug]);
 
+  // Function StarRating
+  function StarRating({ numberOfStars }) {
+    const stars = [];
+    // Prints a ⭐ for every i based on the rating in the database
+    for (let i = 0; i < numberOfStars; i++) {
+      stars.push(<span key={i}>⭐</span>);
+    }
+    // Return Stars
+    return <div>Rating: {stars}</div>;
+  }
+
   return (
     <div>
       <Link to={"/movie"}>⬅ Movies</Link>
@@ -45,13 +56,17 @@ function singleMovie() {
               alt={element.title}
             />
             <br />
-            {/* edit movie */}
+
+            <Link to={`/editMovie/${element.slug}`}>✏ Edit</Link>
           </div>
           <div className="col-2">
             {/* Display Movie Title */}
             <h1>{element.title}</h1>
             <p>{element.description}</p>
-            {/* stars */}
+
+            {/* Invoke Star Rating */}
+            <StarRating numberOfStars={element.stars} />
+
             {/* Categories Related to Movies */}
             <p>
               <b>Category</b>
