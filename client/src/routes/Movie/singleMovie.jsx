@@ -45,13 +45,13 @@ function singleMovie() {
               alt={element.title}
             />
             <br />
-            {/*  */}
+            {/* edit movie */}
           </div>
           <div className="col-2">
             {/* Display Movie Title */}
             <h1>{element.title}</h1>
             <p>{element.description}</p>
-            {/*  */}
+            {/* stars */}
             {/* Categories Related to Movies */}
             <p>
               <b>Category</b>
