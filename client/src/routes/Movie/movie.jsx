@@ -6,8 +6,9 @@ const Movie = () => {
   const baseURL = "http://localhost:8000/api/movies";
   // Will be populated with all the data recieved from baseURL
   const [movieData, setMovieData] = useState([]);
-  // Will check
-  const [isLoading, setIsLoading] = useState(true);
+  // Will check if App is in a Loading State
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -23,11 +24,12 @@ const Movie = () => {
         const jsonData = await response.json();
 
         setMovieData(jsonData);
-        setIsLoading(false);
+        setLoading(false);
       } catch (error) {
         // Console Log The Error
         console.log(error);
-        setIsLoading(false);
+        setError("Error Fetching Movie Data!");
+        setLoading(false);
       }
     };
 
@@ -46,8 +48,10 @@ const Movie = () => {
       {/* <pre>{JSON.stringify(movieData, null, 2)}</pre> */}
 
       {/* What we do if we're in a Loading State */}
-      {isLoading ? (
-        <p>Loading...</p>
+      {loading ? (
+        <p> Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
       ) : (
         // If The App is NOT in a Loading State, Do the Following.
         <ul className="movies">
