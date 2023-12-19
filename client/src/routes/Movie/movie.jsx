@@ -52,8 +52,10 @@ const Movie = () => {
         {/* Grab Data */}
         Node JS Section. "Add Movie" Fucntion Here later.
       </p>
-      <h2>Data Display</h2>
 
+      <Link to={"/createmovie"}>+ Add New Movie</Link>
+
+      <h2>Data Display</h2>
       {/* className filters used in index.css */}
       <div className="filters">
         <label>Categories</label>

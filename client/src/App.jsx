@@ -4,6 +4,7 @@ import Home from "./routes/Home/home";
 import About from "./routes/About/about";
 import Movie from "./routes/Movie/movie";
 import SingleMovie from "./routes/Movie/singleMovie";
+import CreateMovie from "./routes/Movie/createMovie";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/movie" element={<Movie />} />
+          <Route path="/createMovie/" element={<CreateMovie />} />
           {/* Path to Single movie */}
           <Route path="/movies/:slug" element={<SingleMovie />} />
         </Routes>
