@@ -36,7 +36,7 @@ function singleMovie() {
 
   return (
     <div>
-      <pre>{JSON.stringify(movieData, null, 2)}</pre>
+      <Link to={"/movie"}>⬅ Movies</Link>
     </div>
   );
 }
