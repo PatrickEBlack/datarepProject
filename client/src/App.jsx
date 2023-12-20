@@ -20,7 +20,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/movie" element={<Movie />} />
           <Route path="/createMovie/" element={<CreateMovie />} />
-          {/* Path to Single movie */}
           <Route path="/movies/:slug" element={<SingleMovie />} />
         </Routes>
         <Footer />

@@ -3,6 +3,8 @@ require("dotenv").config();
 
 const cors = require("cors");
 
+const multer = require("multer");
+
 const express = require("express");
 
 const connectDB = require("./connectDB");
@@ -25,16 +27,33 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
+const storage = multer.diskStorage({
+  // destination of image storage
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  // filename for storage
+  filename: function (req, file, cb) {
+    // creates a unique code for in front of the image name
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + "-" + file.originalname);
+  },
+});
+
+// Using multer to store images, not working at the minute
+const upload = multer({ storage: storage });
+
 //Create a Route
 app.get("/api/movies", async (req, res) => {
   try {
-    const category = req.query.category;
+    // Query the genre and save into genre vairable
+    const genre = req.query.genre;
 
     const filter = {};
 
-    // If there is data in category, filter.category will hold the Category Type
-    if (category) {
-      filter.category = category;
+    // If there is data in genre, filter.genre will hold the Genre Type
+    if (genre) {
+      filter.genre = genre;
     }
 
     // Data from movies
@@ -61,22 +80,26 @@ app.get("/api/movies/:slug", async (req, res) => {
   }
 });
 
-app.post("/api/movies", async (req, res) => {
+// send a new movie to the database (upload.single not working at the minute)
+app.post("/api/movies", upload.single("thumbnail"), async (req, res) => {
   try {
-    console.log(req.body);
+    // const { title, slug } = req.body;
+    // // get the uploaded files filename
+    // const thumbnail = req.file.filename;
 
+    // Create a new movie object and set all required variables based on the data in the database
     const newMovie = new Movie({
       title: req.body.title,
       slug: req.body.slug,
       stars: req.body.stars,
       description: req.body.description,
-      category: req.body.category,
-      //thumbnail: req.file.filename,
+      genre: req.body.genre,
+      thumbnail: req.file.filename,
     });
 
-    await Movie.create(newMovie);
-
-    res.json("Data submitted");
+    await newMovie.save();
+    // Prompt comfirming Movie Creation
+    res.status(201).json({ message: "Movie Created" });
   } catch (error) {
     // Error if Movies cannot be Fetched
     res.status(500).json({ error: "An error occured while fetching Movies " });

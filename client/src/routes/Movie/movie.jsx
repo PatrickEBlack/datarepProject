@@ -9,16 +9,16 @@ const Movie = () => {
   // Will check if App is in a Loading State
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  // Select Category to show from dropdown Menu
-  const [selectedCategory, setSelectedCategory] = useState("");
+  // Select genre to show from dropdown Menu
+  const [selectedGenre, setSelectedGenre] = useState("");
 
   useEffect(() => {
     const fetchMovieData = async () => {
       try {
         let URL = baseURL;
-        if (selectedCategory) {
-          // Search for selected category in Data File
-          URL += `?category=${selectedCategory}`;
+        if (selectedGenre) {
+          // Search for selected genre in Data File
+          URL += `?genre=${selectedGenre}`;
         }
 
         // Stores baseURL in response
@@ -43,25 +43,23 @@ const Movie = () => {
 
     // Invoking fetchMovieData
     fetchMovieData();
-  }, [selectedCategory]);
+  }, [selectedGenre]);
 
   return (
     <div>
       <h1>Movies</h1>
-      <p>
-        {/* Grab Data */}
-        Node JS Section. "Add Movie" Fucntion Here later.
-      </p>
 
       <Link to={"/createmovie"}>+ Add New Movie</Link>
 
-      <h2>Data Display</h2>
       {/* className filters used in index.css */}
       <div className="filters">
-        <label>Categories</label>
-        {/* Grab the Value of the selected Category */}
-        <select onChange={(e) => setSelectedCategory(e.target.value)}>
-          {/* Lables For Movie Categories */}
+        <label>
+          <br></br>
+          <b>Genres</b>
+        </label>
+        {/* Grab the Value of the selected Genre */}
+        <select onChange={(e) => setSelectedGenre(e.target.value)}>
+          {/* Lables For Movie Genres, more can be added but this is all I need for now */}
           <option value="">All</option>
           <option value="adventure">Adventure</option>
           <option value="comedy">Comedy</option>

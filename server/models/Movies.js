@@ -16,8 +16,13 @@ const MovieSchema = mongoose.Schema({
   stars: {
     type: Number,
   },
-  category: {
+  genre: {
     type: Array,
+  },
+  // I forgot to add this for some reason and spent 2 days
+  // trying to figure out why user data wouldn't show
+  thumbnail: {
+    type: String,
   },
   createdAt: {
     type: Date,

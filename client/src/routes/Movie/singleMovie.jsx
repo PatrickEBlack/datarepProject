@@ -47,16 +47,19 @@ function singleMovie() {
 
   return (
     <div>
+      {/* Link back to Movies Page */}
       <Link to={"/movie"}>⬅ Movies</Link>
       {movieData.map((element) => (
         <div className="moviedetails">
           <div className="col-1">
             <img
+              // Source of image from localhost:8000
               src={`http://localhost:8000/uploads/${element.thumbnail}`}
               alt={element.title}
             />
             <br />
 
+            {/* link to edit Movies, Not done yet */}
             <Link to={`/editMovie/${element.slug}`}>✏ Edit</Link>
           </div>
           <div className="col-2">
@@ -67,13 +70,13 @@ function singleMovie() {
             {/* Invoke Star Rating */}
             <StarRating numberOfStars={element.stars} />
 
-            {/* Categories Related to Movies */}
+            {/* Genres Related to Movies */}
             <p>
-              <b>Category</b>
+              <b>Genre</b>
             </p>
             <ul>
-              {element.category.map((item, index) => (
-                // Display Categories
+              {element.genre.map((item, index) => (
+                // Display Genres as a String in upperCase
                 <li key={index}>{item.toString().toUpperCase()}</li>
               ))}
             </ul>

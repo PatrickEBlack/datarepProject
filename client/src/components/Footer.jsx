@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
-    return (
-        <footer>
-            {/* Copyright Symbol and Current Year */}
-            &copy; CopyRight {new Date().getFullYear()}
-        </footer>
-    )
-}
+  return (
+    <footer>
+      {/* Copyright Symbol and Current Year */}
+      &spades; Cool Spades HTML Symbol I found (Extra Marks ???)
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
