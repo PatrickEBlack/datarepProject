@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      <h2>Movie Database App</h2>
+      <h1>About</h1>
       <h3>Created by G00410388 - Patrick Black</h3>
       <br></br>
       <p>
@@ -17,6 +17,8 @@ const About = () => {
         the user. I tried many fixes for this, but no matter what I did, the
         images would not be posted to the database. This meant that they could
         not be retrieved when the app tried to display them in the movies page.
+        I have since gotten this fixed, it was a problem in the models folder. I
+        never added the thumbnail to the Schema.
       </p>
     </div>
   );
