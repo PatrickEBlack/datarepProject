@@ -5,6 +5,7 @@ import About from "./routes/About/about";
 import Movie from "./routes/Movie/movie";
 import SingleMovie from "./routes/Movie/singleMovie";
 import CreateMovie from "./routes/Movie/createMovie";
+import EditMovie from "./routes/Movie/editMovie";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/movie" element={<Movie />} />
           <Route path="/createMovie/" element={<CreateMovie />} />
+          <Route path="/editMovie/:slug" element={<EditMovie />} />
           <Route path="/movies/:slug" element={<SingleMovie />} />
         </Routes>
         <Footer />

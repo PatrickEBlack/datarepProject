@@ -80,13 +80,9 @@ app.get("/api/movies/:slug", async (req, res) => {
   }
 });
 
-// send a new movie to the database (upload.single not working at the minute)
+// Send a new movie to the database (WORKING)
 app.post("/api/movies", upload.single("thumbnail"), async (req, res) => {
   try {
-    // const { title, slug } = req.body;
-    // // get the uploaded files filename
-    // const thumbnail = req.file.filename;
-
     // Create a new movie object and set all required variables based on the data in the database
     const newMovie = new Movie({
       title: req.body.title,
@@ -105,6 +101,37 @@ app.post("/api/movies", upload.single("thumbnail"), async (req, res) => {
     res.status(500).json({ error: "An error occured while fetching Movies " });
   }
 });
+
+// Edit an existing movie in the MongoDB Database
+app.put("/api/movies", upload.single("thumbnail"), async (req, res) => {
+  try {
+    const movieID = req.body.movieID;
+
+    const updateMovie = {
+      title: req.body.title,
+      slug: req.body.slug,
+      stars: req.body.stars,
+      description: req.body.description,
+      genre: req.body.genre,
+    };
+
+    // If a request for a new thumbnail is submitted, change thumbnail
+    // If not, leave the thumbnail as it currently is
+    if (req.file) {
+      updateMovie.thumbnail = req.file.filename;
+    }
+
+    // Finds Movie by ID
+    await Movie.findByIdAndUpdate(movieID, updateMovie);
+    // Prompt comfirming Movie Creation
+    res.status(201).json({ message: "Movie Updated Successfully" });
+  } catch (error) {
+    // Error if Movies cannot be Fetched
+    res.status(500).json({ error: "An error occured while updating Movie!" });
+  }
+});
+
+// Add delete functionality
 
 app.get("/", (req, res) => {
   // Response to localhost:8000
