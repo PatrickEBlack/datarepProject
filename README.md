@@ -36,6 +36,6 @@ How to Run the Project:
 Download the source code from the git Repo. Assuming you have NPM installed you should be fine. Open the code in your
 desired IDE (vsCode in my case) and locate the terminal. type "cd server" and once in the server folder type "npm run dev".
 You should see "Server is running on Port: 8000". Once this is done you can open a new terminal and type "cd client" to 
-direct you to the client folder. Now type "npm run" and you should see a prompt saying "local: http://localhost:5173/".
+direct you to the client folder. Now type "npm create vite@latest", name your project "client" and select "REACT", then choose "javaScript". Once this has complete, type "npm install". Now type "npm run dev" and you should see a prompt saying "local: http://localhost:5173/".
 click on the link and it should redirect you to your app in your default browser. From here you are free to roam the app#
 and check out all the features available.
