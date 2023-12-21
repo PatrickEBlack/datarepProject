@@ -102,6 +102,34 @@ function CreateMovie() {
                 onChange={(e) => setSlug(e.target.value)}
               />
             </div>
+            <div>
+              <label>Stars</label>
+              <input
+                type="text"
+                value={stars}
+                onChange={(e) => setStars(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Description</label>
+              <textarea
+                rows="4"
+                cols="50"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div>
+              <label>Genres</label>
+              <label>Genres (Comma-Separated)</label>
+              <input
+                type="text"
+                value={genres}
+                onChange={changeGenre}
+                // onChange={(e) => setCategories(e.target.value)}
+              />
+            </div>
+
             {/* must add more fields later */}
             <input type="submit" value="Add Movie" />
           </div>

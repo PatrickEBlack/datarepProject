@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const Schema = mongoose.schema;
-//idk if this will work
+// Parameters for movie in database
 const MovieSchema = mongoose.Schema({
   title: {
     type: String,
