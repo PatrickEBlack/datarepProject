@@ -35,6 +35,4 @@ page.
 How to Run the Project:
 Download the source code from the git Repo. Assuming you have NPM installed you should be fine. Open the code in your
 desired IDE (vsCode in my case) and locate the terminal. type "cd server" and once in the server folder type "npm run dev".
-You should see "Server is running on Port: 8000". Once this is done you can open a new terminal and type "cd client" to 
-direct you to the client folder. Once done, type "npm install". Now type "npm run dev" and you should see a prompt saying "local: http://localhost:5173/". Click on the link and it should redirect you to your app in your default browser. From here you are free to roam the app
-and check out all the features available.
+You should see "Server is running on Port: 8000" as well as a message confirming connection to the database. Once this is done you can open a new terminal and type "cd client" to direct you to the client folder. Once done, type "npm install". Now type "npm run dev" and you should see a prompt saying "local: http://localhost:5173/". Click on the link and it should redirect you to your app in your default browser. From here you are free to roam the app and check out all the features available.
