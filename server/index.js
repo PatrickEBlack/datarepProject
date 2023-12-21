@@ -132,6 +132,17 @@ app.put("/api/movies", upload.single("thumbnail"), async (req, res) => {
 });
 
 // Add delete functionality
+app.delete("/api/movies/:id", async (req, res) => {
+  const movieID = req.params.id;
+
+  try {
+    // Attempts to delete a movie based on its ID
+    await Movie.deleteOne({ _id: movieID });
+    res.json("Movie Deleted!" + req.body.movieID);
+  } catch (error) {
+    res.json(error);
+  }
+});
 
 app.get("/", (req, res) => {
   // Response to localhost:8000
