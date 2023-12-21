@@ -120,8 +120,7 @@ function CreateMovie() {
               />
             </div>
             <div>
-              <label>Genres</label>
-              <label>Genres (Comma-Separated)</label>
+              <label>Genres (Only 1 or it breaks)</label>
               <input
                 type="text"
                 value={genres}

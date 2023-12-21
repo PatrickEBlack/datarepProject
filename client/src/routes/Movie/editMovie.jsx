@@ -124,9 +124,9 @@ function EditMovie() {
         }
       );
 
-      // If it works, navigate to the movies page and display Movie deleted to the console
+      // If successful, navigate to the movies page and display Movie deleted to the console
       if (response.ok) {
-        navigate("/movies");
+        navigate("/movie");
         console.log("Movie Deleted");
       }
     } catch (error) {
